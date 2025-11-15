@@ -45,9 +45,10 @@ export const ContactSection = () => {
   });
 
   const onSubmit = (data: ContactFormValues) => {
-    // Here you can integrate with your backend or email service
-    console.log("Contact form submitted:", data);
-    toast.success("Message sent successfully! We'll get back to you soon.");
+    const subject = `Contact Form Message from ${data.name}`;
+    const body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0A%0D%0AMessage:%0D%0A${data.message}`;
+    window.location.href = `mailto:Codespace.it@glbitm.ac.in?subject=${encodeURIComponent(subject)}&body=${body}`;
+    toast.success("Opening your email client...");
     form.reset();
   };
 
