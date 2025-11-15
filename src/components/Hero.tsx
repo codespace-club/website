@@ -13,7 +13,7 @@ export const Hero = () => {
             <img 
               src={logo} 
               alt="CodeSpace Club Logo" 
-              className="w-64 h-64 object-contain scale-[2]"
+              className="w-64 h-64 object-contain scale-[1.5]"
             />
           </div>
 
@@ -50,7 +50,7 @@ export const Hero = () => {
             <img 
               src={logo} 
               alt="CodeSpace Club Logo" 
-              className="w-[55rem] h-[55rem] object-contain"
+              className="w-96 h-96 object-contain scale-[1.5]"
             />
           </div>
         </div>
