@@ -43,14 +43,14 @@ export const Footer = () => {
   const translateX = -100 + (scrollProgress * 100);
 
   return (
-    <footer className="mt-20">
+    <footer className="mt-20 overflow-x-hidden">
       {/* Giant CODESPACE Text Section */}
       <div 
         ref={sectionRef}
-        className="min-h-[35vh] sm:min-h-[45vh] lg:min-h-[55vh] flex items-center justify-start bg-background px-6 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24 overflow-hidden"
+        className="min-h-[35vh] sm:min-h-[45vh] lg:min-h-[55vh] flex items-center justify-start bg-background px-4 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24 overflow-hidden"
       >
         <h2 
-          className="text-[16vw] sm:text-[14vw] lg:text-[12vw] xl:text-[10vw] font-black italic text-primary leading-none tracking-tighter transition-transform duration-100 ease-out w-full"
+          className="text-[20vw] sm:text-[14vw] lg:text-[12vw] xl:text-[10vw] font-black italic text-primary leading-none tracking-tighter transition-transform duration-100 ease-out"
           style={{ transform: `translateX(${translateX}%)` }}
         >
           CODESPACE
@@ -59,12 +59,12 @@ export const Footer = () => {
 
       {/* Orange Content Section */}
       <div className="bg-primary">
-        <div className="container mx-auto px-6 sm:px-12 lg:px-20 py-12 sm:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-20 py-12 sm:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {/* Left: Club Description */}
-            <div className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-bold text-background">CodeSpace</h3>
-              <p className="text-background text-base sm:text-lg leading-relaxed font-medium">
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-background">CodeSpace</h3>
+              <p className="text-background text-sm sm:text-base lg:text-lg leading-relaxed font-medium">
                 At CodeSpace Club, we believe in the transformative power of coding.
                 <br /><br />
                 Whether you're a seasoned developer or a curious beginner, our community is the perfect place to ignite your passion and expand your skills.
@@ -72,19 +72,19 @@ export const Footer = () => {
             </div>
 
             {/* Right: Social Links */}
-            <div className="space-y-6">
-              <h4 className="text-xl sm:text-2xl font-bold text-background">Follow Us</h4>
-              <ul className="space-y-3">
+            <div className="space-y-4 sm:space-y-6">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-background">Follow Us</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {socialLinks.map((social) => (
                   <li key={social.name}>
                     <a
                       href={social.href}
-                      className="flex items-center gap-3 text-background hover:text-background/80 transition-colors group"
+                      className="flex items-center gap-2 sm:gap-3 text-background transition-colors group"
                     >
                       <span className="flex items-center justify-center">
-                        <social.icon className="w-5 h-5" />
+                        <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </span>
-                      <span className="text-base sm:text-lg font-semibold underline group-hover:no-underline">
+                      <span className="text-sm sm:text-base lg:text-lg font-semibold underline">
                         {social.name}
                       </span>
                     </a>
