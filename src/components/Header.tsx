@@ -42,7 +42,7 @@ export const Header = () => {
       </svg>
 
       <header
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out w-[95%] sm:w-auto
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out w-[90%] sm:w-auto
           ${isScrolled || isHovered ? "scale-100" : "scale-95"}
         `}
         onMouseEnter={() => setIsHovered(true)}
@@ -71,7 +71,7 @@ export const Header = () => {
             }}
           >
             {/* Navigation */}
-            <div className="flex items-center space-x-0.5 sm:space-x-1 relative z-10">
+            <div className="flex items-center justify-center space-x-0.5 sm:space-x-1 relative z-10 w-full">
               {navItems.map((item) => (
                 <NavLink
                   key={item.path}

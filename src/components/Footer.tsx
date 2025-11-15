@@ -50,7 +50,7 @@ export const Footer = () => {
         className="min-h-[35vh] sm:min-h-[45vh] lg:min-h-[55vh] flex items-center justify-start bg-background px-4 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24 overflow-hidden"
       >
         <h2 
-          className="text-[20vw] sm:text-[14vw] lg:text-[12vw] xl:text-[10vw] font-black italic text-primary leading-none tracking-tighter transition-transform duration-100 ease-out"
+          className="text-[16vw] sm:text-[14vw] lg:text-[12vw] xl:text-[10vw] font-black italic text-primary leading-none tracking-tighter transition-transform duration-100 ease-out"
           style={{ transform: `translateX(${translateX}%)` }}
         >
           CODESPACE
