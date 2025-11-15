@@ -4,7 +4,7 @@ import logo from "@/assets/codespace-logo.png";
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-10">
       {/* Background Glow Effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-glow opacity-30 blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
@@ -18,7 +18,7 @@ export const Hero = () => {
               <img 
                 src={logo} 
                 alt="CodeSpace Club Logo" 
-                className="w-[42rem] h-[42rem] sm:w-[55rem] sm:h-[55rem] object-contain relative z-10"
+                className="w-[28rem] h-[28rem] sm:w-[32rem] sm:h-[32rem] object-contain relative z-10"
               />
             </div>
           </div>
@@ -58,7 +58,7 @@ export const Hero = () => {
               <img 
                 src={logo} 
                 alt="CodeSpace Club Logo" 
-                className="w-[55rem] h-[55rem] lg:w-[64rem] lg:h-[64rem] object-contain relative z-10"
+                className="w-[55rem] h-[55rem] object-contain relative z-10"
               />
             </div>
           </div>
