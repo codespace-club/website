@@ -71,13 +71,13 @@ export const Header = () => {
             }}
           >
             {/* Navigation */}
-            <div className="flex items-center space-x-1 relative z-10">
+            <div className="flex items-center space-x-0.5 sm:space-x-1 relative z-10">
               {navItems.map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
                   end
-                  className="px-3 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-bold text-muted-foreground 
+                  className="px-2 sm:px-3 md:px-6 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm font-bold text-muted-foreground 
                     transition-all duration-300 ease-out
                     hover:text-foreground hover:bg-white/10 hover:scale-105"
                   activeClassName="text-primary bg-white/15 shadow-glow scale-105"
