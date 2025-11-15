@@ -8,7 +8,7 @@ export const BlogSection = () => {
   const featuredPosts = blogPosts.slice(0, 4);
   
   return (
-    <section className="py-20 sm:py-32 relative autoblur">
+    <section className="py-20 sm:py-32 relative">
       {/* SVG Filter for glassmorphism */}
       <svg style={{ display: "none" }}>
         <filter id="blogDisplacementFilter">
@@ -49,7 +49,7 @@ export const BlogSection = () => {
               <Link
                 key={post.id}
                 to={`/blog/${post.id}`}
-                className="block group"
+                className="block group autoblur"
               >
                 <div
                   className="relative overflow-hidden rounded-[28px] p-6 sm:p-8 lg:p-10 transition-all duration-500 hover:scale-[1.02]"

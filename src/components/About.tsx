@@ -2,7 +2,7 @@ import teamPhoto from "@/assets/team-photo.png";
 
 export const About = () => {
   return (
-    <section className="py-20 sm:py-32 relative autoblur">
+    <section className="py-20 sm:py-32 relative">
       {/* Background Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl" />
 
@@ -10,7 +10,7 @@ export const About = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left: Team Photo */}
-            <div className="relative">
+            <div className="relative autoblur">
               <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-2xl" />
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-strong border border-border/50">
                 <img 
@@ -22,7 +22,7 @@ export const About = () => {
             </div>
 
             {/* Right: Description */}
-            <div className="relative p-6 sm:p-10 lg:p-12">
+            <div className="relative p-6 sm:p-10 lg:p-12 autoblur">
               <div className="relative z-10 space-y-6 sm:space-y-8">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary tracking-tight">
                   CodeSpace
