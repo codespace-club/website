@@ -16,22 +16,13 @@ export const About = () => {
         <div className="max-w-5xl mx-auto">
           {/* Main Card */}
           <div 
-            className="relative overflow-hidden rounded-[28px] p-8 sm:p-12 lg:p-16 group hover:scale-[1.02] transition-all duration-500"
+            className="relative overflow-hidden rounded-[28px] p-8 sm:p-12 lg:p-16 transition-all duration-500"
             style={{
-              filter: 'drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))',
               backdropFilter: 'brightness(1.1) blur(9px) url(#aboutDisplacementFilter)',
               WebkitBackdropFilter: 'brightness(1.1) blur(9px)',
               background: 'hsl(var(--glass-bg))',
             }}
           >
-            {/* Glassmorphic border effect */}
-            <div 
-              className="absolute inset-0 rounded-[28px] pointer-events-none"
-              style={{
-                boxShadow: 'inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)',
-              }}
-            />
-
             {/* Content */}
             <div className="relative z-10 space-y-8">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary tracking-tight">

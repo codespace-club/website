@@ -9,12 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow hover:shadow-strong hover:scale-105",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:scale-105",
-        outline: "border border-white/50 bg-background/10 backdrop-blur-[9px] [-webkit-backdrop-filter:blur(9px)] hover:bg-white/10 hover:text-foreground hover:shadow-[0_0_20px_rgba(255,107,0,0.2)] hover:scale-105 relative before:content-[''] before:absolute before:inset-0 before:rounded-[inherit] before:shadow-[inset_4px_4px_0px_-4px_rgba(255,255,255,0.6),inset_0_0_6px_1px_rgba(255,255,255,0.6)]",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-105",
-        ghost: "hover:bg-white/10 hover:text-accent-foreground backdrop-blur-[9px] hover:scale-105",
-        link: "text-primary underline-offset-4 hover:underline",
+        default: "bg-primary text-primary-foreground",
+        destructive: "bg-destructive text-destructive-foreground",
+        outline: "border border-white/50 bg-background/10 backdrop-blur-[9px] [-webkit-backdrop-filter:blur(9px)] relative before:content-[''] before:absolute before:inset-0 before:rounded-[inherit] before:shadow-[inset_4px_4px_0px_-4px_rgba(255,255,255,0.6),inset_0_0_6px_1px_rgba(255,255,255,0.6)]",
+        secondary: "bg-secondary text-secondary-foreground",
+        ghost: "backdrop-blur-[9px]",
+        link: "text-primary underline-offset-4",
       },
       size: {
         default: "h-10 px-6 py-2",

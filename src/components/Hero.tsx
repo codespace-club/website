@@ -24,7 +24,7 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-4 md:gap-6">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-strong transition-all duration-300 group"
+                className="bg-primary text-primary-foreground transition-all duration-300 group"
               >
                 Join Us
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

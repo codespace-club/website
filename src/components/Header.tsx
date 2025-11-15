@@ -78,9 +78,8 @@ export const Header = () => {
                   to={item.path}
                   end
                   className="px-2 sm:px-3 md:px-6 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm font-bold text-muted-foreground 
-                    transition-all duration-300 ease-out
-                    hover:text-foreground hover:bg-white/10 hover:scale-105"
-                  activeClassName="text-primary bg-white/15 shadow-glow scale-105"
+                    transition-all duration-300 ease-out"
+                  activeClassName="text-primary bg-white/15 scale-105"
                 >
                   {item.name}
                 </NavLink>

@@ -81,24 +81,14 @@ export const ContactSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left: Contact Form */}
             <div
-              className="relative overflow-hidden rounded-[28px] p-6 sm:p-10 lg:p-12 group hover:scale-[1.01] transition-all duration-500"
+              className="relative overflow-hidden rounded-[28px] p-6 sm:p-10 lg:p-12 transition-all duration-500"
               style={{
-                filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))",
                 backdropFilter:
                   "brightness(1.1) blur(9px) url(#contactDisplacementFilter)",
                 WebkitBackdropFilter: "brightness(1.1) blur(9px)",
                 background: "hsl(var(--glass-bg))",
               }}
             >
-              {/* Glassmorphic border effect */}
-              <div
-                className="absolute inset-0 rounded-[28px] pointer-events-none"
-                style={{
-                  boxShadow:
-                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)",
-                }}
-              />
-
               {/* Content */}
               <div className="relative z-10 space-y-6">
                 <div className="space-y-3">
@@ -181,7 +171,7 @@ export const ContactSection = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-strong transition-all duration-300"
+                      className="w-full bg-primary text-primary-foreground transition-all duration-300"
                       disabled={form.formState.isSubmitting}
                     >
                       {form.formState.isSubmitting ? "Sending..." : "Send Message"}
@@ -193,24 +183,14 @@ export const ContactSection = () => {
 
             {/* Right: 3D Spline Placeholder */}
             <div
-              className="relative overflow-hidden rounded-[28px] p-6 sm:p-10 lg:p-12 min-h-[400px] lg:min-h-[600px] flex items-center justify-center group hover:scale-[1.01] transition-all duration-500"
+              className="relative overflow-hidden rounded-[28px] p-6 sm:p-10 lg:p-12 min-h-[400px] lg:min-h-[600px] flex items-center justify-center transition-all duration-500"
               style={{
-                filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))",
                 backdropFilter:
                   "brightness(1.1) blur(9px) url(#contactDisplacementFilter)",
                 WebkitBackdropFilter: "brightness(1.1) blur(9px)",
                 background: "hsl(var(--glass-bg))",
               }}
             >
-              {/* Glassmorphic border effect */}
-              <div
-                className="absolute inset-0 rounded-[28px] pointer-events-none"
-                style={{
-                  boxShadow:
-                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)",
-                }}
-              />
-
               {/* Placeholder Content */}
               <div className="relative z-10 text-center space-y-4">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary flex items-center justify-center shadow-strong">

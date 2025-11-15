@@ -34,7 +34,7 @@ const Team = () => {
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
-                  className="relative overflow-hidden rounded-[28px] p-6 sm:p-8 text-center group hover:scale-[1.02] transition-all duration-500"
+                  className="relative overflow-hidden rounded-[28px] p-6 sm:p-8 text-center transition-all duration-500"
                   style={{
                     filter: 'drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))',
                     backdropFilter: 'brightness(1.1) blur(9px) url(#teamDisplacementFilter)',
@@ -52,7 +52,7 @@ const Team = () => {
 
                   {/* Content */}
                   <div className="relative z-10 space-y-4">
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-primary mx-auto flex items-center justify-center shadow-glow">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-primary mx-auto flex items-center justify-center">
                       <span className="text-3xl sm:text-4xl font-bold text-white">
                         {member.name.charAt(0)}
                       </span>

@@ -50,7 +50,7 @@ const Events = () => {
               {upcomingEvents.map((event, index) => (
                 <div
                   key={index}
-                  className="relative overflow-hidden rounded-[28px] p-6 sm:p-8 group hover:scale-[1.02] transition-all duration-500"
+                  className="relative overflow-hidden rounded-[28px] p-6 sm:p-8 transition-all duration-500"
                   style={{
                     filter: 'drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))',
                     backdropFilter: 'brightness(1.1) blur(9px) url(#eventsDisplacementFilter)',
