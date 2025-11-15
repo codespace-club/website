@@ -8,20 +8,20 @@ export const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-glow opacity-30 blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary tracking-tight">
+            <div className="space-y-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-primary tracking-tight">
                 CODESPACE
               </h1>
-              <p className="text-xl sm:text-2xl text-muted-foreground max-w-lg">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-lg font-semibold">
                 A hub for tech enthusiasts to explore, innovate, and create the future together!
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 md:gap-6">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow hover:shadow-strong transition-all duration-300 group"
@@ -32,7 +32,6 @@ export const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/50 text-primary hover:bg-primary/10 backdrop-blur-glass"
               >
                 Learn More
               </Button>
