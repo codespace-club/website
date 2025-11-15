@@ -8,7 +8,7 @@ export const BlogSection = () => {
   const featuredPosts = blogPosts.slice(0, 4);
   
   return (
-    <section className="py-20 sm:py-32 relative">
+    <section className="py-20 sm:py-32 relative autoblur">
       {/* SVG Filter for glassmorphism */}
       <svg style={{ display: "none" }}>
         <filter id="blogDisplacementFilter">

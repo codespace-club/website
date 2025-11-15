@@ -62,3 +62,30 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Autoblur animation for mobile/tablet page transitions */
+.autoblur {
+    animation: none;
+}
+
+@media (max-width: 1024px) {
+    .autoblur {
+        animation: autoblur linear both;
+        animation-timeline: view();
+    }
+}
+
+@keyframes autoblur {
+    0% {
+        filter: blur(40px);
+    }
+
+    45%,
+    55% {
+        filter: blur(0px);
+    }
+
+    100% {
+        filter: blur(40px);
+    }
+}

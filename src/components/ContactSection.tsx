@@ -53,7 +53,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 sm:py-32 relative">
+    <section className="py-20 sm:py-32 relative autoblur">
       {/* SVG Filter for glassmorphism */}
       <svg style={{ display: "none" }}>
         <filter id="contactDisplacementFilter">

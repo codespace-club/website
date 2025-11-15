@@ -46,7 +46,7 @@ export const Hero = () => {
           </div>
 
           {/* Desktop: Logo on Right */}
-          <div className="hidden lg:flex justify-center lg:justify-end animate-fade-in order-3 lg:order-2" style={{ animationDelay: "0.2s" }}>
+          <div className="hidden lg:flex justify-center lg:justify-end items-center lg:mt-12 animate-fade-in order-3 lg:order-2" style={{ animationDelay: "0.2s" }}>
             <img 
               src={logo} 
               alt="CodeSpace Club Logo" 

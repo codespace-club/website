@@ -2,7 +2,7 @@ import teamPhoto from "@/assets/team-photo.png";
 
 export const About = () => {
   return (
-    <section className="py-20 sm:py-32 relative">
+    <section className="py-20 sm:py-32 relative autoblur">
       {/* Background Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl" />
 
