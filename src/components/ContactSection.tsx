@@ -13,6 +13,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import SplineComponent from "@/components/Spline";
 
 const contactSchema = z.object({
   name: z
@@ -79,7 +80,7 @@ export const ContactSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Left: Contact Form */}
             <div className="relative p-6 sm:p-10 lg:p-12">
               {/* Content */}
@@ -174,21 +175,9 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            {/* Right: 3D Spline Placeholder */}
-            <div className="relative p-6 sm:p-10 lg:p-12 min-h-[400px] lg:min-h-[600px] flex items-center justify-center">
-              {/* Placeholder Content */}
-              <div className="relative z-10 text-center space-y-4">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary flex items-center justify-center shadow-strong">
-                  <div className="text-6xl">🎨</div>
-                </div>
-                <h3 className="text-2xl font-bold text-primary">
-                  3D Interactive Component
-                </h3>
-                <p className="text-muted-foreground text-sm sm:text-base max-w-sm mx-auto">
-                  Spline 3D component placeholder. This area will showcase an
-                  interactive 3D experience.
-                </p>
-              </div>
+            {/* Right: 3D Spline Component */}
+            <div className="relative">
+              <SplineComponent className="w-full h-full" />
             </div>
           </div>
         </div>

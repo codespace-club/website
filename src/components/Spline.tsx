@@ -1,7 +1,7 @@
 import Spline from '@splinetool/react-spline';
 
-export default function App() {
+export default function App({ className }: { className?: string }) {
   return (
-    <Spline scene="https://prod.spline.design/SG1r5oLOEtmjaRwC/scene.splinecode" />
+    <Spline className={className} scene="https://prod.spline.design/SG1r5oLOEtmjaRwC/scene.splinecode" />
   );
 }
