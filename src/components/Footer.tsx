@@ -1,4 +1,5 @@
 import { Github, Linkedin, Instagram } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const socialLinks = [
   { name: "LinkedIn", href: "#", icon: Linkedin },
@@ -12,11 +13,42 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <footer className="mt-20">
       {/* Giant CODESPACE Text Section */}
-      <div className="min-h-[50vh] flex items-center justify-start bg-background px-6 sm:px-12 lg:px-20 py-20">
-        <h2 className="text-[12vw] sm:text-[10vw] lg:text-[8vw] xl:text-[7vw] font-black italic text-primary leading-none tracking-tighter">
+      <div 
+        ref={sectionRef}
+        className="min-h-[30vh] sm:min-h-[40vh] lg:min-h-[50vh] flex items-center justify-start bg-background px-6 sm:px-12 lg:px-20 py-12 sm:py-16 lg:py-20 overflow-hidden"
+      >
+        <h2 
+          className={`text-[12vw] sm:text-[10vw] lg:text-[8vw] xl:text-[7vw] font-black italic text-primary leading-none tracking-tighter transition-all duration-1000 ease-out ${
+            isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+          }`}
+        >
           CODESPACE
         </h2>
       </div>
