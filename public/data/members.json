@@ -1,0 +1,650 @@
+{
+   "members": [
+      {
+         "id": "core-1",
+         "name": "Alex Chen",
+         "role": "President",
+         "teamId": "core",
+         "teamName": "Core Team",
+         "bio": "Leads the club, oversees development, and manages all major initiatives.",
+         "image": "/images/team/team-photo.png",
+         "funFact": "Can code for 12 hours straight without losing focus.",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "core-2",
+         "name": "Sarah Johnson",
+         "role": "Vice President",
+         "teamId": "core",
+         "teamName": "Core Team",
+         "bio": "Supports leadership, manages internal operations, and helps coordinate between teams.",
+         "image": "/images/team/vice-president.png",
+         "funFact": "Makes the best coffee in the entire club.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "technical-1",
+         "name": "Alex Chen",
+         "role": "Lead",
+         "teamId": "technical",
+         "teamName": "Technical",
+         "bio": "Full-stack developer passionate about web technologies.",
+         "image": "/images/team/technical-1.png",
+         "funFact": "Built first app at 12",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "technical-2",
+         "name": "Riya Patel",
+         "role": "Co-Lead",
+         "teamId": "technical",
+         "teamName": "Technical",
+         "bio": "Backend engineer focused on reliability.",
+         "image": "/images/team/technical-2.png",
+         "funFact": "Collects retro keyboards.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "technical-3",
+         "name": "Mike Rodriguez",
+         "role": "Senior Dev",
+         "teamId": "technical",
+         "teamName": "Technical",
+         "bio": "Mobile app developer and open source contributor.",
+         "image": "/images/team/technical-3.png",
+         "funFact": "Speaks three languages.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "technical-4",
+         "name": "Priya Kumar",
+         "role": "Frontend Dev",
+         "teamId": "technical",
+         "teamName": "Technical",
+         "bio": "UI engineer who loves animations.",
+         "image": "/images/team/technical-4.png",
+         "funFact": "Builds tiny side projects.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "technical-5",
+         "name": "Daniel Lee",
+         "role": "DevOps",
+         "teamId": "technical",
+         "teamName": "Technical",
+         "bio": "Keeps deployments healthy.",
+         "image": "/images/team/technical-5.png",
+         "funFact": "Bakes sourdough on weekends.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "technical-6",
+         "name": "Farah Ali",
+         "role": "Junior Dev",
+         "teamId": "technical",
+         "teamName": "Technical",
+         "bio": "Loves learning new frameworks.",
+         "image": "/images/team/technical-6.png",
+         "funFact": "Sketches in her free time.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "editorial-1",
+         "name": "Alex Morgan",
+         "role": "Lead",
+         "teamId": "editorial",
+         "teamName": "Editorial",
+         "bio": "Club president — coordinates all initiatives.",
+         "image": "/images/team/editorial-1.png",
+         "funFact": "Runs marathons.",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "editorial-2",
+         "name": "Sara Lee",
+         "role": "Co-Lead",
+         "teamId": "editorial",
+         "teamName": "Editorial",
+         "bio": "Vice president helping run operations.",
+         "image": "/images/team/editorial-2.png",
+         "funFact": "Plays violin.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "editorial-3",
+         "name": "Rahul Shah",
+         "role": "Coordinator",
+         "teamId": "editorial",
+         "teamName": "Editorial",
+         "bio": "Manages scheduling and meetings.",
+         "image": "/images/team/editorial-3.png",
+         "funFact": "Coffee enthusiast.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "editorial-4",
+         "name": "Mira Joshi",
+         "role": "Coordinator",
+         "teamId": "editorial",
+         "teamName": "Editorial",
+         "bio": "Handles administration.",
+         "image": "/images/team/editorial-4.png",
+         "funFact": "Sketches UI on paper.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "editorial-5",
+         "name": "Ethan Cruz",
+         "role": "Coordinator",
+         "teamId": "editorial",
+         "teamName": "Editorial",
+         "bio": "Oversees member onboarding.",
+         "image": "/images/team/editorial-5.png",
+         "funFact": "Photographs landscapes.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "editorial-6",
+         "name": "Nina Verma",
+         "role": "Coordinator",
+         "teamId": "editorial",
+         "teamName": "Editorial",
+         "bio": "Runs membership drives.",
+         "image": "/images/team/editorial-6.png",
+         "funFact": "Gardener.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "design-1",
+         "name": "Emma Wilson",
+         "role": "Lead",
+         "teamId": "design",
+         "teamName": "Design",
+         "bio": "UI/UX designer creating beautiful digital experiences.",
+         "image": "/images/team/design-1.png",
+         "funFact": "Has a vintage camera collection.",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "design-2",
+         "name": "Noah Singh",
+         "role": "Co-Lead",
+         "teamId": "design",
+         "teamName": "Design",
+         "bio": "Brand designer and illustrator.",
+         "image": "/images/team/design-2.png",
+         "funFact": "Draws comics.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "design-3",
+         "name": "Liam Roberts",
+         "role": "Product Designer",
+         "teamId": "design",
+         "teamName": "Design",
+         "bio": "Focuses on usability.",
+         "image": "/images/team/design-3.png",
+         "funFact": "Enjoys pottery.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "design-4",
+         "name": "Zara Khan",
+         "role": "Visual Designer",
+         "teamId": "design",
+         "teamName": "Design",
+         "bio": "Crafts visual systems.",
+         "image": "/images/team/design-4.png",
+         "funFact": "Collects stickers.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "design-5",
+         "name": "Omar Ali",
+         "role": "Motion Designer",
+         "teamId": "design",
+         "teamName": "Design",
+         "bio": "Animates UI micro-interactions.",
+         "image": "/images/team/design-5.png",
+         "funFact": "Makes short films.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "design-6",
+         "name": "Maya Lopez",
+         "role": "UX Researcher",
+         "teamId": "design",
+         "teamName": "Design",
+         "bio": "Loves user interviews.",
+         "image": "/images/team/design-6.png",
+         "funFact": "Hosts a book club.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "content-1",
+         "name": "Liam Johnson",
+         "role": "Lead",
+         "teamId": "content",
+         "teamName": "Content",
+         "bio": "Handles blogs and club documentation.",
+         "image": "/images/team/content-1.png",
+         "funFact": "Writes short stories.",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "content-2",
+         "name": "Hannah Lee",
+         "role": "Co-Lead",
+         "teamId": "content",
+         "teamName": "Content",
+         "bio": "Edits and proofreads content.",
+         "image": "/images/team/content-2.png",
+         "funFact": "Sketches frequently.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "content-3",
+         "name": "Samir Gupta",
+         "role": "Blog Writer",
+         "teamId": "content",
+         "teamName": "Content",
+         "bio": "Writes technical blog posts.",
+         "image": "/images/team/content-3.png",
+         "funFact": "Climbs mountains.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "content-4",
+         "name": "Bea Hernandez",
+         "role": "Editor",
+         "teamId": "content",
+         "teamName": "Content",
+         "bio": "Polishes content quality.",
+         "image": "/images/team/content-4.png",
+         "funFact": "Is a barista.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "content-5",
+         "name": "Chris Walker",
+         "role": "Podcaster",
+         "teamId": "content",
+         "teamName": "Content",
+         "bio": "Runs club podcast episodes.",
+         "image": "/images/team/content-5.png",
+         "funFact": "Collects vinyl.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "content-6",
+         "name": "Yara Ali",
+         "role": "Copywriter",
+         "teamId": "content",
+         "teamName": "Content",
+         "bio": "Crafts headlines and CTAs.",
+         "image": "/images/team/content-6.png",
+         "funFact": "Loves baking.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "event-1",
+         "name": "James Park",
+         "role": "Lead",
+         "teamId": "event-management",
+         "teamName": "Event Management",
+         "bio": "Organizing amazing tech events and workshops.",
+         "image": "/images/team/event-1.png",
+         "funFact": "Organized a 1000+ attendee conference.",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "event-2",
+         "name": "Sofia Gomez",
+         "role": "Co-Lead",
+         "teamId": "event-management",
+         "teamName": "Event Management",
+         "bio": "Event logistics and partnerships.",
+         "image": "/images/team/event-2.png",
+         "funFact": "Marathon runner.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "event-3",
+         "name": "Arjun Verma",
+         "role": "Logistics",
+         "teamId": "event-management",
+         "teamName": "Event Management",
+         "bio": "Venue planning and ops.",
+         "image": "/images/team/event-3.png",
+         "funFact": "Plays tabla.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "event-4",
+         "name": "Nina Park",
+         "role": "Volunteer Lead",
+         "teamId": "event-management",
+         "teamName": "Event Management",
+         "bio": "Runs volunteer programs.",
+         "image": "/images/team/event-4.png",
+         "funFact": "Loves gardening.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "event-5",
+         "name": "Carl White",
+         "role": "Sponsorships",
+         "teamId": "event-management",
+         "teamName": "Event Management",
+         "bio": "Builds sponsor relationships.",
+         "image": "/images/team/event-5.png",
+         "funFact": "Collects coins.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "event-6",
+         "name": "Anita Rao",
+         "role": "Content for Events",
+         "teamId": "event-management",
+         "teamName": "Event Management",
+         "bio": "Creates event collateral.",
+         "image": "/images/team/event-6.png",
+         "funFact": "Sketches logos.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "pr-1",
+         "name": "Aarav Bhandari",
+         "role": "PR Lead",
+         "teamId": "pr",
+         "teamName": "PR & Marketing",
+         "bio": "Manages branding, outreach, and communication strategy for the club.",
+         "image": "/images/team/pr-1.png",
+         "funFact": "Can speak 4 languages fluently.",
+         "isLead": true,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "pr-2",
+         "name": "Lina Zhang",
+         "role": "Marketing Specialist",
+         "teamId": "pr",
+         "teamName": "PR & Marketing",
+         "bio": "Focuses on social media campaigns and member engagement.",
+         "image": "/images/team/pr-2.png",
+         "funFact": "Has traveled to 15 countries.",
+         "isLead": false,
+         "isCoLead": true,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "pr-3",
+         "name": "Ethan Brown",
+         "role": "Content Creator",
+         "teamId": "pr",
+         "teamName": "PR & Marketing",
+         "bio": "Creates promotional content and newsletters for the club.",
+         "image": "/images/team/pr-3.png",
+         "funFact": "Enjoys photography.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "pr-4",
+         "name": "Sophia Martinez",
+         "role": "Social Media Manager",
+         "teamId": "pr",
+         "teamName": "PR & Marketing",
+         "bio": "Manages the club's social media presence and engagement.",
+         "image": "/images/team/pr-4.png",
+         "funFact": "Loves hiking and outdoor adventures.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "pr-5",
+         "name": "Rajiv Nair",
+         "role": "PR Coordinator",
+         "teamId": "pr",
+         "teamName": "PR & Marketing",
+         "bio": "Coordinates public relations and media outreach for the club.",
+         "image": "/images/team/pr-5.png",
+         "funFact": "Is a chess enthusiast.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      },
+      {
+         "id": "pr-6",
+         "name": "Maya Singh",
+         "role": "Event Promoter",
+         "teamId": "pr",
+         "teamName": "PR & Marketing",
+         "bio": "Promotes club events and activities to increase participation.",
+         "image": "/images/team/pr-6.png",
+         "funFact": "Enjoys cooking international cuisines.",
+         "isLead": false,
+         "isCoLead": false,
+         "social": {
+            "linkedin": "https://linkedin.com",
+            "github": "https://github.com",
+            "twitter": "https://twitter.com"
+         }
+      }
+   ]
+}
