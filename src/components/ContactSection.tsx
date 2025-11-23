@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,7 +36,7 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-export const ContactSection = () => {
+export const ContactSection = forwardRef<HTMLDivElement>((_props, ref) => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -54,7 +55,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 sm:py-32 relative">
+    <section ref={ref} className="py-20 sm:py-32 relative">
       {/* SVG Filter for glassmorphism */}
       <svg style={{ display: "none" }}>
         <filter id="contactDisplacementFilter">
@@ -186,4 +187,6 @@ export const ContactSection = () => {
       </div>
     </section>
   );
-};
+});
+
+ContactSection.displayName = "ContactSection";
