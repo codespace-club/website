@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabaseClient";
 import { useAuth } from "@/hooks/AuthContext";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { PostForm } from "@/components/PostForm";
 
 type Post = {
   id: number;
@@ -15,11 +17,14 @@ type Post = {
   author: string;
   published_date: string;
   category: string;
+  read_time: string;
 };
 
 const Blogs = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const { profile } = useAuth();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingPost, setEditingPost] = useState<Post | null>(null);
 
   const fetchPosts = async () => {
     const { data, error } = await supabase
@@ -30,13 +35,23 @@ const Blogs = () => {
     if (error) {
       console.error("Error fetching posts:", error);
     } else {
-      setPosts(data);
+      setPosts(data as Post[]);
     }
   };
 
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  const handleAdd = () => {
+    setEditingPost(null);
+    setIsDialogOpen(true);
+  };
+
+  const handleEdit = (post: Post) => {
+    setEditingPost(post);
+    setIsDialogOpen(true);
+  };
 
   const handleDelete = async (postId: number) => {
     if (!window.confirm("Are you sure you want to delete this post?")) {
@@ -48,6 +63,11 @@ const Blogs = () => {
     } else {
       fetchPosts(); // Refetch posts to update UI
     }
+  };
+
+  const handleFormSuccess = () => {
+    setIsDialogOpen(false);
+    fetchPosts();
   };
 
   return (
@@ -62,7 +82,7 @@ const Blogs = () => {
                 News & Updates
               </h1>
               {profile?.role === 'editor' && (
-                <Button variant="outline" size="sm" onClick={() => alert("Add post form not implemented yet.")}>
+                <Button variant="outline" size="sm" onClick={handleAdd}>
                   <PlusCircle className="mr-2 h-4 w-4" />
                   Add Post
                 </Button>
@@ -83,7 +103,7 @@ const Blogs = () => {
                 <div key={post.id} className="group relative">
                   {profile?.role === 'editor' && (
                     <div className="absolute top-2 right-2 z-20 flex gap-2">
-                      <Button size="icon" variant="outline" className="h-8 w-8 bg-background/50" onClick={(e) => { e.preventDefault(); alert("Edit form not implemented yet.")}}>
+                      <Button size="icon" variant="outline" className="h-8 w-8 bg-background/50" onClick={(e) => { e.preventDefault(); handleEdit(post)}}>
                         <Edit className="h-4 w-4" />
                       </Button>
                       <Button size="icon" variant="destructive" className="h-8 w-8" onClick={(e) => { e.preventDefault(); handleDelete(post.id)}}>
@@ -138,6 +158,15 @@ const Blogs = () => {
       </section>
 
       <Footer />
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{editingPost ? 'Edit Post' : 'Add New Post'}</DialogTitle>
+          </DialogHeader>
+          <PostForm postToEdit={editingPost} onSuccess={handleFormSuccess} />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

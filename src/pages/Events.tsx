@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabaseClient";
 import { useAuth } from "@/hooks/AuthContext";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { EventForm } from "@/components/EventForm";
 
 // This type should match the structure of your 'events' table
 type Event = {
@@ -13,18 +15,22 @@ type Event = {
   slug: string;
   title: string;
   description: string;
-  // Add other fields from your table as needed
+  full_description: string;
   event_date: string;
   time_details: string;
   location: string;
+  venue: string;
   category: string;
   status: "upcoming" | "past";
+  registration_link?: string;
 };
 
 const Events = () => {
   const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
   const [pastEvents, setPastEvents] = useState<Event[]>([]);
   const { profile } = useAuth();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<Event | null>(null);
 
   const fetchEvents = async () => {
     const { data: events, error } = await supabase
@@ -38,8 +44,9 @@ const Events = () => {
     }
 
     const now = new Date();
-    const upcoming = events.filter((e) => new Date(e.event_date) >= now);
-    const past = events.filter((e) => new Date(e.event_date) < now);
+    // Ensure event_date is valid before comparing
+    const upcoming = events.filter((e) => e.event_date && new Date(e.event_date) >= now);
+    const past = events.filter((e) => e.event_date && new Date(e.event_date) < now);
     
     setUpcomingEvents(upcoming);
     setPastEvents(past);
@@ -48,6 +55,16 @@ const Events = () => {
   useEffect(() => {
     fetchEvents();
   }, []);
+
+  const handleAdd = () => {
+    setEditingEvent(null);
+    setIsDialogOpen(true);
+  };
+
+  const handleEdit = (event: Event) => {
+    setEditingEvent(event);
+    setIsDialogOpen(true);
+  };
 
   const handleDelete = async (eventId: number) => {
     if (!window.confirm("Are you sure you want to delete this event?")) {
@@ -59,6 +76,11 @@ const Events = () => {
     } else {
       fetchEvents(); // Refetch events to update the UI
     }
+  };
+  
+  const handleFormSuccess = () => {
+    setIsDialogOpen(false);
+    fetchEvents();
   };
 
   return (
@@ -83,7 +105,7 @@ const Events = () => {
                   </h2>
                 </div>
                 {profile?.role === 'editor' && (
-                  <Button variant="ghost" onClick={() => alert("Add event form not implemented yet.")}>
+                  <Button variant="ghost" onClick={handleAdd}>
                     <PlusCircle className="mr-2 h-5 w-5" />
                     Add Event
                   </Button>
@@ -96,7 +118,7 @@ const Events = () => {
                     <div key={event.id} className="group relative">
                       {profile?.role === 'editor' && (
                         <div className="absolute top-2 right-2 z-20 flex gap-2">
-                          <Button size="icon" variant="outline" className="h-8 w-8 bg-background/50" onClick={(e) => { e.preventDefault(); alert("Edit form not implemented yet.")}}>
+                          <Button size="icon" variant="outline" className="h-8 w-8 bg-background/50" onClick={(e) => { e.preventDefault(); handleEdit(event)}}>
                             <Edit className="h-4 w-4" />
                           </Button>
                           <Button size="icon" variant="destructive" className="h-8 w-8" onClick={(e) => { e.preventDefault(); handleDelete(event.id)}}>
@@ -171,7 +193,7 @@ const Events = () => {
                      <div key={event.id} className="group relative">
                       {profile?.role === 'editor' && (
                         <div className="absolute top-2 right-2 z-20 flex gap-2">
-                           <Button size="icon" variant="outline" className="h-8 w-8 bg-background/50" onClick={(e) => { e.preventDefault(); alert("Edit form not implemented yet.")}}>
+                           <Button size="icon" variant="outline" className="h-8 w-8 bg-background/50" onClick={(e) => { e.preventDefault(); handleEdit(event)}}>
                             <Edit className="h-4 w-4" />
                           </Button>
                           <Button size="icon" variant="destructive" className="h-8 w-8" onClick={(e) => { e.preventDefault(); handleDelete(event.id)}}>
@@ -227,6 +249,15 @@ const Events = () => {
         </div>
       </main>
       <Footer />
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{editingEvent ? 'Edit Event' : 'Add New Event'}</DialogTitle>
+          </DialogHeader>
+          <EventForm eventToEdit={editingEvent} onSuccess={handleFormSuccess} />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

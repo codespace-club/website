@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { NavLink as CustomNavLink } from "@/components/NavLink";
-import { useAuth } from "@/hooks/AuthContext";
-import { supabase } from "@/lib/supabaseClient";
-import { Button } from "./ui/button";
+import { NavLink } from "@/components/NavLink";
 
 const navItems = [
   { name: "HOME", path: "/" },
@@ -16,13 +12,6 @@ const navItems = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const { user, loading } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate('/');
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +74,7 @@ export const Header = () => {
             {/* Navigation */}
             <div className="flex items-center justify-center space-x-0.5 sm:space-x-1 relative z-10 w-full">
               {navItems.map((item) => (
-                <CustomNavLink
+                <NavLink
                   key={item.path}
                   to={item.path}
                   end
@@ -94,23 +83,8 @@ export const Header = () => {
                   activeClassName="text-primary bg-white/15 scale-105"
                 >
                   {item.name}
-                </CustomNavLink>
+                </NavLink>
               ))}
-              {!loading && (
-                <div className="ml-2">
-                  {user ? (
-                    <Button onClick={handleLogout} variant="ghost" size="sm" className="rounded-full text-xs">Logout</Button>
-                  ) : (
-                    <CustomNavLink
-                      to="/login"
-                      className="px-4 py-2 rounded-full text-xs font-bold text-muted-foreground transition-all duration-300 ease-out"
-                      activeClassName="text-primary bg-white/15"
-                    >
-                      LOGIN
-                    </CustomNavLink>
-                  )}
-                </div>
-              )}
             </div>
           </div>
         </nav>
