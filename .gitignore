@@ -1,3 +1,6 @@
+# Supabase environment variables
+.env
+
 # Logs
 logs
 *.log
@@ -7,6 +10,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node build artifacts
 node_modules
 dist
 dist-ssr
