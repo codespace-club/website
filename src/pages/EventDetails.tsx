@@ -1,26 +1,74 @@
+import { useState, useEffect } from "react";
 import { Calendar, Clock, MapPin, ArrowLeft, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useParams, Navigate } from "react-router-dom";
-import { events } from "@/data/events";
+import { Link, useParams } from "react-router-dom";
+import { supabase } from "@/lib/supabaseClient";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import NotFound from "./NotFound";
+
+type Event = {
+  id: number;
+  slug: string;
+  title: string;
+  category: string;
+  event_date: string;
+  time_details: string;
+  location: string;
+  venue: string;
+  attendees: number;
+  registration_link: string;
+  status: 'upcoming' | 'past';
+  full_description: string;
+  highlights: string[];
+  sponsors: { name: string }[];
+  guests: { name: string; role: string }[];
+};
 
 const EventDetails = () => {
-  const { id } = useParams();
-  const event = events.find((e) => e.id === id);
+  const { id } = useParams<{ id: string }>();
+  const [event, setEvent] = useState<Event | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      if (!id) return;
+
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .eq("slug", id)
+        .single();
+
+      if (error) {
+        console.error("Error fetching event:", error);
+      } else {
+        setEvent(data);
+      }
+      setLoading(false);
+    };
+
+    fetchEvent();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Loading event details...</p>
+      </div>
+    );
+  }
 
   if (!event) {
-    return <Navigate to="/events" replace />;
+    return <NotFound />;
   }
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="pt-12 pb-12 sm:pt-16 sm:pb-16 relative">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-        
+      <Header />
+      <section className="pt-24 pb-12 sm:pt-32 sm:pb-16 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
-            {/* Back Button */}
             <Link to="/events">
               <Button variant="outline" size="sm" className="gap-2">
                 <ArrowLeft className="w-4 h-4" />
@@ -28,27 +76,24 @@ const EventDetails = () => {
               </Button>
             </Link>
 
-            {/* Category Badge */}
             <div className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30">
               <span className="text-sm font-bold text-primary">
                 {event.category}
               </span>
             </div>
 
-            {/* Title */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-primary tracking-tight leading-tight">
               {event.title}
             </h1>
 
-            {/* Event Meta Info */}
             <div className="flex flex-wrap gap-6 text-sm sm:text-base text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-primary" />
-                <span>{new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>{new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-primary" />
-                <span>{event.time}</span>
+                <span>{event.time_details}</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-primary" />
@@ -62,10 +107,9 @@ const EventDetails = () => {
               )}
             </div>
 
-            {/* Registration Button for Upcoming Events */}
-            {event.status === "upcoming" && event.registrationLink && (
+            {event.status === "upcoming" && event.registration_link && (
               <div>
-                <a href={event.registrationLink} target="_blank" rel="noopener noreferrer">
+                <a href={event.registration_link} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-primary text-primary-foreground">
                     Register Now
                   </Button>
@@ -76,36 +120,20 @@ const EventDetails = () => {
         </div>
       </section>
 
-      {/* Content Section */}
       <section className="py-12 sm:py-16 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12">
-            {/* Description */}
             <div
               className="relative overflow-hidden rounded-[28px] p-8 sm:p-12"
-              style={{
-                filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))",
-                backdropFilter: "brightness(1.1) blur(9px)",
-                WebkitBackdropFilter: "brightness(1.1) blur(9px)",
-                background: "hsl(var(--glass-bg))",
-              }}
+              style={{ background: "hsl(var(--glass-bg))" }}
             >
-              <div
-                className="absolute inset-0 rounded-[28px] pointer-events-none"
-                style={{
-                  boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)",
-                }}
-              />
-              
               <div className="relative z-10 space-y-6">
                 <h2 className="text-2xl sm:text-3xl font-bold text-foreground">About This Event</h2>
                 <div className="text-base sm:text-lg text-foreground/90 leading-relaxed space-y-4">
-                  {event.fullDescription.split('\n\n').map((paragraph, index) => (
+                  {event.full_description.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                   ))}
                 </div>
-
-                {/* Venue Details */}
                 <div className="pt-6 border-t border-border/50">
                   <h3 className="text-xl font-bold text-foreground mb-3">Venue Details</h3>
                   <p className="text-foreground/90">{event.venue}</p>
@@ -113,24 +141,8 @@ const EventDetails = () => {
               </div>
             </div>
 
-            {/* Highlights */}
             {event.highlights && event.highlights.length > 0 && (
-              <div
-                className="relative overflow-hidden rounded-[28px] p-8 sm:p-12"
-                style={{
-                  filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))",
-                  backdropFilter: "brightness(1.1) blur(9px)",
-                  WebkitBackdropFilter: "brightness(1.1) blur(9px)",
-                  background: "hsl(var(--glass-bg))",
-                }}
-              >
-                <div
-                  className="absolute inset-0 rounded-[28px] pointer-events-none"
-                  style={{
-                    boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)",
-                  }}
-                />
-                
+              <div className="relative overflow-hidden rounded-[28px] p-8 sm:p-12" style={{ background: "hsl(var(--glass-bg))" }}>
                 <div className="relative z-10 space-y-4">
                   <div className="flex items-center gap-2">
                     <Award className="w-6 h-6 text-primary" />
@@ -148,24 +160,8 @@ const EventDetails = () => {
               </div>
             )}
 
-            {/* Sponsors */}
             {event.sponsors && event.sponsors.length > 0 && (
-              <div
-                className="relative overflow-hidden rounded-[28px] p-8 sm:p-12"
-                style={{
-                  filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))",
-                  backdropFilter: "brightness(1.1) blur(9px)",
-                  WebkitBackdropFilter: "brightness(1.1) blur(9px)",
-                  background: "hsl(var(--glass-bg))",
-                }}
-              >
-                <div
-                  className="absolute inset-0 rounded-[28px] pointer-events-none"
-                  style={{
-                    boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)",
-                  }}
-                />
-                
+              <div className="relative overflow-hidden rounded-[28px] p-8 sm:p-12" style={{ background: "hsl(var(--glass-bg))" }}>
                 <div className="relative z-10 space-y-6">
                   <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Our Sponsors</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
@@ -182,24 +178,8 @@ const EventDetails = () => {
               </div>
             )}
 
-            {/* Special Guests */}
             {event.guests && event.guests.length > 0 && (
-              <div
-                className="relative overflow-hidden rounded-[28px] p-8 sm:p-12"
-                style={{
-                  filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.37))",
-                  backdropFilter: "brightness(1.1) blur(9px)",
-                  WebkitBackdropFilter: "brightness(1.1) blur(9px)",
-                  background: "hsl(var(--glass-bg))",
-                }}
-              >
-                <div
-                  className="absolute inset-0 rounded-[28px] pointer-events-none"
-                  style={{
-                    boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.7), inset 0 0 8px 1px rgba(255, 255, 255, 0.7)",
-                  }}
-                />
-                
+              <div className="relative overflow-hidden rounded-[28px] p-8 sm:p-12" style={{ background: "hsl(var(--glass-bg))" }}>
                 <div className="relative z-10 space-y-6">
                   <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Special Guests</h2>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -214,7 +194,6 @@ const EventDetails = () => {
               </div>
             )}
 
-            {/* Navigation */}
             <div className="flex justify-center">
               <Link to="/events">
                 <Button variant="outline" size="lg" className="gap-2">
@@ -226,6 +205,7 @@ const EventDetails = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
